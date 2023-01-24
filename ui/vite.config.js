@@ -19,7 +19,6 @@ export default defineConfig({
     },
   },
   test: {
-    globals: true, // use `describe, it, test` without importing them
     environment: "jsdom",
     coverage: {
       provider: "istanbul", // or 'c8'

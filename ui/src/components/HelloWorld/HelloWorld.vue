@@ -23,7 +23,8 @@ export default {
   },
   data() {
     return {
-      mockApiData: {} };
+      mockApiData: {},
+    };
   },
   async mounted() {
     console.log("hello-world mounted");

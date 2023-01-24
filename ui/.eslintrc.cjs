@@ -8,7 +8,4 @@ module.exports = {
     "eslint:recommended",
     "@vue/eslint-config-prettier",
   ],
-  env: {
-    vitest: true
-  }
 };
