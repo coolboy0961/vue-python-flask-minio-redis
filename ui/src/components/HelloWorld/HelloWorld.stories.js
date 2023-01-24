@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import HelloWorld from "./HelloWorld.vue";
+import HelloWorld from "../HelloWorld.vue";
 
 export default {
   title: "Component/HelloWorld",
@@ -19,14 +19,13 @@ TestMessage.args = {
 TestMessage.parameters = {
   msw: {
     handlers: [
-      rest.get('/user', (req, res, ctx) => {
+      rest.get("/user", (req, res, ctx) => {
         return res(
           ctx.json({
-            firstName: 'Neil',
-            lastName: 'Maverick',
+            result: "this is a test.",
           })
-        )
+        );
       }),
-    ]
+    ],
   },
-}
+};

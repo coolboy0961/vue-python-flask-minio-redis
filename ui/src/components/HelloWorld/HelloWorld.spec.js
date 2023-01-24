@@ -1,23 +1,23 @@
 import { describe, test, expect } from "vitest";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import flushPromises from 'flush-promises'
+import flushPromises from "flush-promises";
 
 import { mount } from "@vue/test-utils";
-import HelloWorld from "../HelloWorld.vue";
+import HelloWorld from "./HelloWorld.vue";
 
-const server = setupServer();
+const apiMockServer = setupServer();
 
 describe("HelloWorld", () => {
   beforeAll(() => {
-    server.listen();
+    apiMockServer.listen();
   });
   afterAll(() => {
-    server.close();
+    apiMockServer.close();
   });
   beforeEach(() => {});
   afterEach(() => {
-    server.resetHandlers();
+    apiMockServer.resetHandlers();
   });
   test("renders properly", () => {
     // Arrange
@@ -35,7 +35,7 @@ describe("HelloWorld", () => {
     const expected = {
       result: "this is a test.",
     };
-    server.use(
+    apiMockServer.use(
       rest.get("/user", (req, res, ctx) => {
         return res(ctx.json({ result: "this is a test." }));
       })

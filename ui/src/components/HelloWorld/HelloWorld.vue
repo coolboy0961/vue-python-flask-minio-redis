@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { axiosInstance } from "../apis/axios-instance";
+import { axiosInstance } from "../../apis/axios-instance";
 
 export default {
   name: "hello-world",
@@ -23,7 +23,6 @@ export default {
   },
   data() {
     return {
-      message: "abcd",
       mockApiData: {} };
   },
   async mounted() {
