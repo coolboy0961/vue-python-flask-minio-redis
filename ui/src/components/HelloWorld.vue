@@ -6,10 +6,13 @@
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
       <a target="_blank" href="https://v2.vuejs.org/">Vue 2</a>.
     </h3>
+    <h3>{{ mockApiData }}</h3>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "hello-world",
   props: {
@@ -18,7 +21,14 @@ export default {
       required: true,
     },
   },
-  methods: {}
+  data() {
+    return { mockApiData: {} };
+  },
+  async mounted() {
+    console.log("hello-world mounted");
+    const response = await axios.get("/user");
+    this.mockApiData = response.data;
+  },
 };
 </script>
 

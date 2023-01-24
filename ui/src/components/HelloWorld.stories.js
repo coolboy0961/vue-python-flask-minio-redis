@@ -1,3 +1,4 @@
+import { rest } from "msw";
 import HelloWorld from "./HelloWorld.vue";
 
 export default {
@@ -13,5 +14,19 @@ const Template = (args, { argTypes }) => ({
 
 export const TestMessage = Template.bind({});
 TestMessage.args = {
-  msg: "Test Message"
+  msg: "Test Message",
 };
+TestMessage.parameters = {
+  msw: {
+    handlers: [
+      rest.get('/user', (req, res, ctx) => {
+        return res(
+          ctx.json({
+            firstName: 'Neil',
+            lastName: 'Maverick',
+          })
+        )
+      }),
+    ]
+  },
+}
