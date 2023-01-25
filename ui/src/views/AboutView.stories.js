@@ -1,4 +1,4 @@
-import { userEvent, within, waitFor } from "@storybook/testing-library";
+import { userEvent, within, waitFor, screen } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
 
 import { createPinia } from "pinia";
@@ -9,27 +9,24 @@ export default {
   component: AboutView,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = () => ({
   components: { AboutView },
-  props: Object.keys(argTypes),
   template: "<AboutView />",
   pinia: createPinia(),
 });
 
 export const Default = Template.bind({});
-Default.play = async ({ canvasElement }) => {
+Default.play = async () => {
   // Arrange
 
   // Act
-  const canvas = within(canvasElement);
-  const incrementButton = canvas.getByTestId("increment-button");
+  const incrementButton = await screen.findByRole("button");
 
-  userEvent.click(incrementButton);
-  userEvent.click(incrementButton);
+  await userEvent.click(incrementButton);
+  await userEvent.click(incrementButton);
 
-  await waitFor(() => {
-    const actual = canvas.getByText("count: 2");
-    // Assert
-    expect(actual).toBeInTheDocument();
-  });
+  const actual = await screen.findByText("count: 2");
+
+  // Assert
+  expect(actual).toBeInTheDocument();
 };
