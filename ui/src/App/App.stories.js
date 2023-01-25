@@ -1,7 +1,8 @@
 import { rest } from "msw";
 import App from "./App.vue";
-import HomeView from "../src/views/HomeView.vue";
+import HomeView from "@/views/HomeView.vue";
 import StoryRouter from "storybook-vue-router";
+import "@/assets/main.css";
 
 export default {
   title: "Root/App",
@@ -22,7 +23,7 @@ export default {
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import("../src/views/AboutView.vue"),
+            component: () => import("@/views/AboutView.vue"),
           },
         ],
       }
@@ -33,7 +34,11 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { App },
   props: Object.keys(argTypes),
-  template: "<App />",
+  template: `
+  <body>
+    <div id="app"></div>
+    <App />
+  </body>`,
 });
 
 export const Default = Template.bind({});
