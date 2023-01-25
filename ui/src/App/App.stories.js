@@ -1,35 +1,14 @@
 import { rest } from "msw";
 import { createPinia } from "pinia";
-import App from "./App.vue";
-import HomeView from "@/views/HomeView.vue";
+import { routes } from "@/router/routes.js";
 import StoryRouter from "storybook-vue-router";
+import App from "./App.vue";
 import "@/assets/main.css";
 
 export default {
   title: "Pages/App",
   component: App,
-  decorators: [
-    StoryRouter(
-      {},
-      {
-        routes: [
-          {
-            path: "/",
-            name: "home",
-            component: HomeView,
-          },
-          {
-            path: "/about",
-            name: "about",
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import("@/views/AboutView.vue"),
-          },
-        ],
-      }
-    ),
-  ],
+  decorators: [StoryRouter({}, { routes })],
 };
 
 const Template = (args, { argTypes }) => ({
