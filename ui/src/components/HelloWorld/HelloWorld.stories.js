@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import HelloWorld from "../HelloWorld.vue";
+import HelloWorld from "../HelloWorld/HelloWorld.vue";
 
 export default {
   title: "Component/HelloWorld",
