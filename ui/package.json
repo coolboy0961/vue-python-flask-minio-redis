@@ -25,6 +25,7 @@
     "@storybook/addon-interactions": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-vite": "^0.3.0",
+    "@storybook/jest": "^0.0.10",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue": "^6.5.15",
     "@vitejs/plugin-legacy": "^2.0.0",

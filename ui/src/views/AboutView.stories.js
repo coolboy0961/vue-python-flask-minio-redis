@@ -1,3 +1,6 @@
+import { userEvent, within, waitFor } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
+
 import { createPinia } from "pinia";
 import AboutView from "./AboutView.vue";
 
@@ -13,4 +16,20 @@ const Template = (args, { argTypes }) => ({
   pinia: createPinia(),
 });
 
-export const TestMessage = Template.bind({});
+export const Default = Template.bind({});
+Default.play = async ({ canvasElement }) => {
+  // Arrange
+
+  // Act
+  const canvas = within(canvasElement);
+  const incrementButton = canvas.getByTestId("increment-button");
+
+  userEvent.click(incrementButton);
+  userEvent.click(incrementButton);
+
+  await waitFor(() => {
+    const actual = canvas.getByText("count: 2");
+    // Assert
+    expect(actual).toBeInTheDocument();
+  });
+};
