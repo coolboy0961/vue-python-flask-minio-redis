@@ -3,8 +3,16 @@
     <div>
       <h1>This is an about page</h1>
       <br />
-      <h1 data-testid="count-text">count: {{ counterStore.counter }}</h1>
-      <button data-testid="increment-button" @click="incrementCount">Count</button>
+      <h1 id="count-text" data-testid="count-text">
+        count: {{ counterStore.counter }}
+      </h1>
+      <button
+        id="increment-button"
+        data-testid="increment-button"
+        @click="incrementCount"
+      >
+        Count
+      </button>
     </div>
   </div>
 </template>

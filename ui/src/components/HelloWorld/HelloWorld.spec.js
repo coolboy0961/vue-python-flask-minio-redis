@@ -54,8 +54,6 @@ describe("HelloWorld", () => {
     await flushPromises();
     const mockApiData = wrapper.vm.mockApiData;
 
-    console.log(mockApiData);
-
     // Assert
     expect(mockApiData).toEqual(expected);
   });

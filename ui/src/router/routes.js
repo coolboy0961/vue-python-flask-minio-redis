@@ -1,5 +1,5 @@
 import HomeView from "@/views/HomeView.vue";
-import AboutView from "@/views/AboutView.vue";
+import AboutView from "@/views/AboutView/AboutView.vue";
 
 export const routes = [
   {
