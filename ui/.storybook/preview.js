@@ -1,3 +1,5 @@
+import { PiniaVuePlugin } from "pinia";
+import Vue from "vue";
 import { initialize, mswDecorator } from "msw-storybook-addon";
 
 // Initialize MSW
@@ -15,3 +17,5 @@ export const parameters = {
     },
   },
 };
+
+Vue.use(PiniaVuePlugin);

@@ -1,11 +1,12 @@
 import { rest } from "msw";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import HomeView from "@/views/HomeView.vue";
 import StoryRouter from "storybook-vue-router";
 import "@/assets/main.css";
 
 export default {
-  title: "Root/App",
+  title: "Pages/App",
   component: App,
   decorators: [
     StoryRouter(
@@ -39,6 +40,7 @@ const Template = (args, { argTypes }) => ({
     <div id="app"></div>
     <App />
   </body>`,
+  pinia: createPinia(),
 });
 
 export const Default = Template.bind({});

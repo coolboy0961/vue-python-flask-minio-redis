@@ -1,8 +1,30 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <div>
+      <h1>This is an about page</h1>
+      <br />
+      <h1>count: {{ counterStore.counter }}</h1>
+      <button @click="incrementCount">Count</button>
+    </div>
   </div>
 </template>
+
+<script>
+import { mapStores } from "pinia";
+import { useCounterStore } from "@/stores/counter.js";
+
+export default {
+  name: "about-view",
+  computed: {
+    ...mapStores(useCounterStore),
+  },
+  methods: {
+    incrementCount() {
+      this.counterStore.increment();
+    },
+  },
+};
+</script>
 
 <style>
 @media (min-width: 1024px) {
