@@ -1,22 +1,25 @@
+# install all dependencies
 install:
 	pip install -r requirements.txt
 
+# すでにインストールしたパッケージをrequirements.txtに同期
 sync-lib:
 	rm -f requirements.txt
 	pip freeze > requirements.txt
 
-start-development:
+# developmentモードでAPIサーバーを起動(port: 5000)
+run-development:
 	flask run
 
-start-production:
+# productionモードでAPIサーバーを起動
+run-production:
   gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
 
-test:
-	python -m pytest
-
+# 単体テスト
 unit-test:
 	python -m pytest tests/unit-test
 
+# APIテスト(結合)
 api-test:
 	python -m pytest tests/api-test
 
