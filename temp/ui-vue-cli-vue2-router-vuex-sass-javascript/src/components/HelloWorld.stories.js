@@ -1,4 +1,5 @@
 import { rest } from "msw";
+import vuetify from "@/plugins/vuetify";
 import HelloWorld from "./HelloWorld.vue";
 
 export default {
@@ -9,6 +10,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { HelloWorld },
   props: Object.keys(argTypes),
+  vuetify,
   template: '<HelloWorld v-bind="$props" />',
 });
 
