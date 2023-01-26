@@ -8,7 +8,8 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "axios": "^1.2.4",
@@ -28,6 +29,7 @@
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/preset-scss": "^1.0.3",
+    "@storybook/test-runner": "^0.9.3",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue": "^6.5.15",
     "@vue/cli-plugin-babel": "~5.0.0",
