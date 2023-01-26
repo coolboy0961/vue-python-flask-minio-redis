@@ -8,7 +8,7 @@ const apiMockServer = setupServer();
 
 describe("HelloWorld.vue", () => {
   beforeAll(() => {
-    apiMockServer.listen();
+    apiMockServer.listen({ onUnhandledRequest: "bypass" });
   });
   afterAll(() => {
     apiMockServer.close();
