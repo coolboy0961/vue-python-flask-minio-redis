@@ -4,6 +4,7 @@ import json
 from src.infrastructure.FlakeInterfaceAdapter import FlaskInterfaceAdapter
 from src.interface.controllers.UserController import UserController
 
+
 def create_app():
     app = Flask(__name__)
     adapter = FlaskInterfaceAdapter()
@@ -27,7 +28,6 @@ def create_app():
         print(json.dumps(request.args))
         return ""
 
-
     @app.post("/test")
     def test_post():
         print("request.headers:")
@@ -39,8 +39,3 @@ def create_app():
         return ""
 
     return app
-
-
-
-
-

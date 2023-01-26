@@ -5,8 +5,11 @@ sync-lib:
 	rm -f requirements.txt
 	pip freeze > requirements.txt
 
-start:
+start-development:
 	flask run
+
+start-production:
+  gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
 
 test:
 	python -m pytest
