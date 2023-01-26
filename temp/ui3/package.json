@@ -26,6 +26,7 @@
     "@storybook/addon-links": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue": "^6.5.15",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -38,6 +39,7 @@
     "@vue/vue2-jest": "^27.0.0-alpha.2",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.3.0",
+    "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -47,13 +49,18 @@
     "jest": "^27.0.5",
     "lint-staged": "^11.1.2",
     "msw": "^1.0.0",
+    "msw-storybook-addon": "^1.7.0",
     "prettier": "^2.4.1",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
     "vue-loader": "^15.10.1",
     "vue-template-compiler": "^2.6.14"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
