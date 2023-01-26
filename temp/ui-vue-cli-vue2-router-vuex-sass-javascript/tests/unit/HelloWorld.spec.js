@@ -8,7 +8,7 @@ const apiMockServer = setupServer();
 
 describe("HelloWorld.vue", () => {
   beforeAll(() => {
-    apiMockServer.listen({ onUnhandledRequest: "bypass" });
+    apiMockServer.listen({ onUnhandledRequest: "bypass" }); // fix MSW logging warnings for unhandled Supertest requests
   });
   afterAll(() => {
     apiMockServer.close();
@@ -30,7 +30,8 @@ describe("HelloWorld.vue", () => {
       result: "this is a test.",
     };
     apiMockServer.use(
-      rest.get("/user", (req, res, ctx) => {
+      rest.get("/api/user", (req, res, ctx) => {
+        console.log(JSON.stringify(req));
         return res(ctx.json({ result: "this is a test." }));
       })
     );
