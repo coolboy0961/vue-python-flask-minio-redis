@@ -16,6 +16,12 @@ module.exports = {
   webpackFinal: async (config, { configType }) => {
     // Allow the use of Vue src alias in components.
     config.resolve.alias["@"] = path.resolve(__dirname, "../src");
+    // sass-loaderを設定
+    config.module.rules.push({
+      test: /\.sass$/,
+      exclude: /node_modules/,
+      use: ["style-loader", "css-loader", "sass-loader"],
+    });
 
     return config;
   },
