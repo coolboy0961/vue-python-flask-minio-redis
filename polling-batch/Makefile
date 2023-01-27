@@ -15,7 +15,7 @@ run-users:
 unit-test:
 	python -m pytest tests/unit-test
 
-# APIテスト(結合)
-api-test:
-	python -m pytest tests/api-test
+# インテーグレーションテスト(結合)
+integration-test:
+	python -m pytest tests/integration-test
 

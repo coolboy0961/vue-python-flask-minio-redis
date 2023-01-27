@@ -2,9 +2,12 @@ attrs==22.2.0
 autopep8==2.0.1
 exceptiongroup==1.1.0
 iniconfig==2.0.0
+itermate==1.0.2
 packaging==23.0
 pluggy==1.0.0
 pycodestyle==2.10.0
 pytest==7.2.1
 pytest-mock==3.10.0
+pytest-shell==0.3.2
 tomli==2.0.1
+where==1.0.2
