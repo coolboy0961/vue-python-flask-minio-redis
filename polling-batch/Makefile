@@ -7,9 +7,9 @@ sync-lib:
 	rm -f requirements.txt
 	pip freeze > requirements.txt
 
-# バッチ処理を起動
-run:
-	python batch.py
+# usersバッチ処理を起動
+run-users:
+	python batch.py 1
 
 # 単体テスト
 unit-test:
