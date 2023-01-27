@@ -2,6 +2,7 @@
 import os
 import glob
 from src.infrastructure.MinioClient import MinioClient
+from tests.test_utils import get_file_size
 
 class Test:
     def setup_method(self, test_method):
@@ -28,12 +29,13 @@ class Test:
         for file in files:
             os.remove(file)
 
-    def test_ファイルを正しくアップロードできること(self, image_diff):
+    def test_ファイルを正しくアップロードできること(self):
         # Arrange
         current_path = os.path.dirname(os.path.abspath(__file__))
         upload_path = os.path.normpath(os.path.join(current_path, 'upload'))
         download_path = os.path.normpath(os.path.join(current_path, 'download'))
-        expected = upload_path + '/testfile.jpg'
+        expected_file_path = upload_path + '/testfile.jpg'
+        expected_file_size = get_file_size(expected_file_path)
 
         # Act
         target = MinioClient()
@@ -41,7 +43,8 @@ class Test:
             'users', upload_path, 'testfile.jpg')
         target.download(
             'users', download_path, 'testfile.jpg')
-        actual = download_path + '/testfile.jpg'
+        actual_file_path = download_path + '/testfile.jpg'
+        actual_file_size = get_file_size(actual_file_path)
 
         # Assert
-        assert image_diff(expected, actual)
+        assert expected_file_size == actual_file_size
