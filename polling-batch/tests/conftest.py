@@ -1,6 +1,7 @@
 from subprocess import run
 import os
 
+
 def pytest_configure(config):
     """
     Allows plugins and conftest files to perform initial configuration.
@@ -9,7 +10,8 @@ def pytest_configure(config):
     """
     # start minio container
     current_path = os.path.dirname(os.path.abspath(__file__))
-    minio_path = os.path.normpath(os.path.join(current_path, '../../infra/local/minio'))
+    minio_path = os.path.normpath(os.path.join(
+        current_path, '../../infra/local/minio'))
     cmd = ["podman-compose", "-f", "minio.yml", "up", "-d"]
     run(cmd, cwd=minio_path)
 
@@ -19,14 +21,14 @@ def pytest_sessionstart(session):
     Called after the Session object has been created and
     before performing collection and entering the run test loop.
     """
-    
+
 
 def pytest_sessionfinish(session, exitstatus):
     """
     Called after whole test run finished, right before
     returning the exit status to the system.
     """
-    
+
 
 def pytest_unconfigure(config):
     """
@@ -34,6 +36,9 @@ def pytest_unconfigure(config):
     """
     # shutdown minio container
     current_path = os.path.dirname(os.path.abspath(__file__))
-    minio_path = os.path.normpath(os.path.join(current_path, '../../infra/local/minio'))
-    cmd = ["podman-compose", "-f", "minio.yml", "down"]
+    minio_path = os.path.normpath(os.path.join(
+        current_path, '../../infra/local/minio'))
+    cmd = ["podman-compose", "-f", "minio.yml", "down", "-v"]
+    run(cmd, cwd=minio_path)
+    cmd = ["podman", "volume", "rm", "--all"]
     run(cmd, cwd=minio_path)
