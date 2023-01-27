@@ -7,13 +7,9 @@ sync-lib:
 	rm -f requirements.txt
 	pip freeze > requirements.txt
 
-# developmentモードでAPIサーバーを起動(port: 5000)
-run-development:
-	flask run
-
-# productionモードでAPIサーバーを起動
-run-production:
-	gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
+# バッチ処理を起動
+run:
+	python batch.py
 
 # 単体テスト
 unit-test:

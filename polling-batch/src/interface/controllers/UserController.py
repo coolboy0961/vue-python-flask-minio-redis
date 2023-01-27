@@ -1,6 +1,5 @@
 from src.application.usecases.UserUsecase import UserUsecase
 from src.domain.model.User import User
-from src.infrastructure.FlakeInterfaceAdapter import ControllerRequest
 
 
 class UserResponse:
@@ -11,9 +10,7 @@ class UserResponse:
 
 
 class UserController:
-    def get(self, request: ControllerRequest) -> list[UserResponse]:
-        print("request.__dict__")
-        print(request.__dict__)
+    def get(self, request) -> list[UserResponse]:
 
         user_usecase = UserUsecase()
         users = user_usecase.get_users()

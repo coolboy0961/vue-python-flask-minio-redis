@@ -1,6 +1,5 @@
 import json
 from src.domain.model.User import User
-from src.infrastructure.FlakeInterfaceAdapter import ControllerRequest
 from src.interface.controllers.UserController import UserController, UserResponse
 from src.application.usecases.UserUsecase import UserUsecase
 
@@ -27,7 +26,7 @@ def test_get(mocker):
 
     # Act
     target = UserController()
-    request = ControllerRequest({}, {}, {})
+    request = {}
     actual = target.get(request)
     actual_json = json.dumps([ob.__dict__ for ob in actual])
 
