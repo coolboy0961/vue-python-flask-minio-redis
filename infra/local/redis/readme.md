@@ -9,6 +9,7 @@ pip3 install podman-compose
 
 # create redis server
 ```
+cd infra/local/redis
 podman-compose -f redis.yml up -d
 ```
 
