@@ -2,4 +2,4 @@
 __pycache__
 .pytest_cache
 .tests
-tests/unit-test/test_MinioClient/download
+tests/unit-test/test_MinioClient/download/*.jpg

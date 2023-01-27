@@ -13,9 +13,9 @@ run-users:
 
 # 単体テスト
 unit-test:
-	python -m pytest tests/unit-test
+	pytest -s tests/unit-test
 
 # インテーグレーションテスト(結合)
 integration-test:
-	python -m pytest tests/integration-test
+	pytest -s tests/integration-test
 
