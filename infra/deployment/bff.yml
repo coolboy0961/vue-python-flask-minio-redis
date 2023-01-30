@@ -36,7 +36,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: bff
-  namespace: people
+  namespace: sample-app
   labels:
     app: bff
     app.kubernetes.io/component: bff
@@ -58,7 +58,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: bff
-  namespace: people
+  namespace: sample-app
   labels:
     app: bff
     app.kubernetes.io/component: bff
