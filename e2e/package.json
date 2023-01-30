@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "open": "cypress open",
-    "test:single": "cypress run --browser chrome"
+    "open": "STAGE=local-confirm cypress open",
+    "test:single": "STAGE=local-confirm cypress run --browser chrome"
   },
   "devDependencies": {
     "cypress": "^12.4.1",
