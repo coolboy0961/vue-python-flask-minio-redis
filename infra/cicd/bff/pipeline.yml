@@ -1,0 +1,76 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: bff-pipeline
+  namespace: pipeline
+spec:
+  params:
+    - name: APP_NAME
+      type: string
+    - name: GIT_REPO_URL
+      type: string
+    - name: GIT_REVISION
+      type: string
+      default: ""
+  workspaces:
+    - name: workspace
+  tasks:
+    - name: fetch-repository
+      taskRef:
+        name: git-clone
+        kind: ClusterTask
+      workspaces:
+        - name: output
+          workspace: workspace
+      params:
+        - name: url
+          value: $(params.GIT_REPO_URL)
+        - name: revision
+          value: $(params.GIT_REVISION)
+        - name: subdirectory
+          value: ""
+        - name: deleteExisting
+          value: "true"
+    - name: test
+      taskRef:
+        name: bff-test
+        kind: task
+      runAfter:
+        - fetch-repository
+      workspaces:
+        - name: source
+          workspace: workspace
+      params:
+        - name: PYTHON
+          value: "3.10"
+    - name: build
+      taskRef:
+        name: s2i-python
+        kind: ClusterTask
+      runAfter:
+        - test
+      workspaces:
+        - name: source
+          workspace: workspace
+      params:
+        - name: PATH_CONTEXT
+          value: ./bff
+        - name: IMAGE
+          value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/$(params.APP_NAME)
+        - name: TLSVERIFY
+          value: "false"
+
+    - name: deploy
+      taskRef:
+        name: openshift-client
+        kind: ClusterTask
+      runAfter:
+        - build
+      workspaces:
+        - name: manifest-dir
+          workspace: workspace
+      params:
+        - name: SCRIPT
+          value: |
+            echo start deploying bff...
+            oc apply -f ./infra/deployment/bff.yml

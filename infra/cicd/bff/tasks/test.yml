@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: bff-test
+spec:
+  workspaces:
+    - name: source
+  params:
+    - name: PYTHON
+      description: The used Python version, more precisely the tag for the Python image
+      type: string
+      default: "latest"
+  steps:
+    - name: test
+      image: docker.io/python:$(inputs.params.PYTHON)
+      workingDir: $(workspaces.source.path)
+      script: |
+        export PATH=$PATH:$HOME/.local/bin
+        cd bff
+        make install
+        make unit-test

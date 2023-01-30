@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: bff-pipelinerun
+spec:
+  pipelineRef:
+    name: bff-pipeline
+  params:
+    - name: APP_NAME
+      value: bff
+    - name: GIT_REPO_URL
+      value: https://github.com/coolboy0961/vue-python-flask-minio-redis.git
+  workspaces:
+    - name: workspace
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 500Mi

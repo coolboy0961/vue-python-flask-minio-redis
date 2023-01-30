@@ -1,0 +1,73 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bff
+  namespace: people
+  labels:
+    app: bff
+    app.kubernetes.io/component: bff
+    app.kubernetes.io/instance: bff
+  annotations:
+      image.openshift.io/triggers: >-
+          [{"from":{"kind":"ImageStreamTag","name":"bff:latest","namespace":"pipeline"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bff\")].image"}]
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: bff
+  template:
+    metadata:
+      labels:
+        deployment: bff
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: bff
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/pipeline/bff:latest
+          ports:
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 8080
+              protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: bff
+  namespace: people
+  labels:
+    app: bff
+    app.kubernetes.io/component: bff
+    app.kubernetes.io/instance: bff
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  selector:
+    deployment: bff
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bff
+  namespace: people
+  labels:
+    app: bff
+    app.kubernetes.io/component: bff
+    app.kubernetes.io/instance: bff
+spec:
+  to:
+    kind: Service
+    name: bff
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
