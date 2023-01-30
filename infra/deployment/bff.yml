@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: bff
-  namespace: people
+  namespace: sample-app
   labels:
     app: bff
     app.kubernetes.io/component: bff
