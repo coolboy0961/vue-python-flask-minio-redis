@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "open": "cypress open",
+    "test:single": "cypress run --browser chrome"
+  },
   "devDependencies": {
     "cypress": "^12.4.1"
   }
