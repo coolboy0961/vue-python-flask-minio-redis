@@ -1,5 +1,5 @@
 # 環境構築
-venv で Flask をインストールする
+venv で pip packages をインストールする
 
 ```bash
 python3 -m venv .venv
