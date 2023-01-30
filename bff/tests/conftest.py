@@ -1,22 +1,26 @@
-import pytest
-
-from app import create_app
-
-
-@pytest.fixture()
-def app():
-    app = create_app()
-    app.config.update({
-        "TESTING": True,
-    })
-
-    # other setup can go here
-
-    yield app
-
-    # clean up / reset resources here
+def pytest_configure(config):
+    """
+    Allows plugins and conftest files to perform initial configuration.
+    This hook is called for every plugin and initial conftest
+    file after command line options have been parsed.
+    """
 
 
-@pytest.fixture()
-def client(app):
-    return app.test_client()
+def pytest_sessionstart(session):
+    """
+    Called after the Session object has been created and
+    before performing collection and entering the run test loop.
+    """
+
+
+def pytest_sessionfinish(session, exitstatus):
+    """
+    Called after whole test run finished, right before
+    returning the exit status to the system.
+    """
+
+
+def pytest_unconfigure(config):
+    """
+    called before test process is exited.
+    """

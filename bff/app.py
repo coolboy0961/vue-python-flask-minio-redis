@@ -1,9 +1,12 @@
+import settings
 from flask import Flask, request
 import json
 
 from src.infrastructure.FlakeInterfaceAdapter import FlaskInterfaceAdapter
 from src.interface.controllers.UserController import UserController
 
+print(settings.STAGE)
+print(settings.BASE_URL)
 
 def create_app():
     app = Flask(__name__)

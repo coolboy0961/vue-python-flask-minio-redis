@@ -1,10 +1,13 @@
 import json
+import settings
 from src.domain.model.User import User
 from src.infrastructure.FlakeInterfaceAdapter import ControllerRequest
 from src.interface.controllers.UserController import UserController, UserResponse
 from src.application.usecases.UserUsecase import UserUsecase
 
 def test_get(mocker):
+    print(settings.STAGE)
+    print(settings.BASE_URL)
     """
     UserControllerのgetメソッドを呼び出して、正しい結果が帰ってくること
     """
