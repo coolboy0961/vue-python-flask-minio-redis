@@ -17,7 +17,7 @@ run-production:
 
 # 単体テスト
 unit-test:
-	pytest -s tests/unit-test
+	pytest --cov=src --cov-report=xml --cov-branch -s tests/unit-test
 
 # APIテスト(結合)
 api-test:
