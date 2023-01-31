@@ -17,9 +17,12 @@ run-production:
 
 # 単体テスト
 unit-test:
-	pytest --cov=src --cov-report=xml --cov-branch -s tests/unit-test
+	pytest --cov=src --cov-report=xml --cov-branch --junitxml=xunit-report.xml -s tests/unit-test
 
 # APIテスト(結合)
 api-test:
 	pytest -s tests/api-test
 
+# sonarqube連携
+sonar-scanner:
+	./sonar-scaner/sonar-scanner-4.7.0.2747-macosx/bin/sonar-scanner
