@@ -12,7 +12,11 @@ pip3 install podman-compose
 cd infra/local/redis
 podman-compose -f redis.yml up -d
 ```
-
+# remove redis server
+```
+podman-compose -f redis.yml down -v
+podman volume rm --all
+```
 # 操作方法
 ## すべてのキーをリスト
 ```

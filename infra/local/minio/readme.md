@@ -12,7 +12,11 @@ pip3 install podman-compose
 cd infra/local/minio
 podman-compose -f minio.yml up -d
 ```
-
+# remove minio server
+```
+podman-compose -f minio.yml down -v
+podman volume rm --all
+```
 # stop minio server
 podman-compose -f minio.yml down -v
 
