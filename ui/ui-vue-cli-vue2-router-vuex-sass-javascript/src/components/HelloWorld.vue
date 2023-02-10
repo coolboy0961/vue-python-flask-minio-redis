@@ -82,7 +82,8 @@
 </template>
 
 <script>
-import { axiosInstance } from "@/utils/apis/axios-instance.js";
+// import api from "@/utils/apis";
+// import { axiosInstance } from "@/utils/apis/axios-instance";
 export default {
   name: "HelloWorld",
   props: {
@@ -144,8 +145,8 @@ export default {
   }),
   async mounted() {
     console.log("HelloWorld mounted.");
-    const response = await axiosInstance.get("/user");
-    this.apiResponseData = response.data;
+    this.apiResponseData = await this.$api.getUser();
+    // this.apiResponseData = (await axiosInstance.get("/user")).data;
   },
 };
 </script>

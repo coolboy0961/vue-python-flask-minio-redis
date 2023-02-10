@@ -3,6 +3,9 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import { options } from "@/plugins/vuetify.js";
 import { initialize, mswDecorator } from "msw-storybook-addon";
+import api from "@/utils/apis";
+
+Vue.prototype.$api = api;
 
 // Fix [Vue warn]: Property or method "toJSON" is not defined on the instance but referenced during render.
 Vue.prototype.toJSON = function () {
