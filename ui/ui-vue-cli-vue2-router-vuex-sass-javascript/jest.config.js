@@ -8,6 +8,7 @@ module.exports = {
     "src/**/*.{js,jsx,ts,tsx,vue}",
     "!<rootDir>/node_modules/",
   ],
+  // css を import した際のエラーを解消するため
   moduleNameMapper: {
     "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
   },
