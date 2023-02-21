@@ -12,7 +12,8 @@
     "storybook": "start-storybook -p 6006",
     "test-storybook": "test-storybook",
     "sonar": "sonar-scanner",
-    "test:vistual": "vue-cli-service test:unit Storyshots.spec.js"
+    "test:vistual": "vue-cli-service test:unit Storyshots.spec.js",
+    "test:vistual:reset": "vue-cli-service test:unit Storyshots.spec.js -u"
   },
   "dependencies": {
     "axios": "^1.2.4",
