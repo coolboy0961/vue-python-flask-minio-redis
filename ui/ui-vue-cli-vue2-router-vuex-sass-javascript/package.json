@@ -5,13 +5,14 @@
   "scripts": {
     "serve": "STAGE=local-confirm vue-cli-service serve",
     "build": "STAGE=local-confirm vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --testPathIgnorePatterns=\"Storyshots\"",
     "lint": "vue-cli-service lint",
     "build-storybook": "build-storybook",
     "coverage": "vue-cli-service test:unit --coverage",
     "storybook": "start-storybook -p 6006",
     "test-storybook": "test-storybook",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner",
+    "test:vistual": "vue-cli-service test:unit Storyshots.spec.js"
   },
   "dependencies": {
     "axios": "^1.2.4",
@@ -29,6 +30,7 @@
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
+    "@storybook/addon-storyshots": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.15",
@@ -54,6 +56,7 @@
     "eslint-plugin-vue": "^8.0.3",
     "flush-promises": "^1.0.2",
     "jest": "^27.0.5",
+    "jest-css-modules": "^2.1.0",
     "jest-sonar-reporter": "^2.0.0",
     "lint-staged": "^11.1.2",
     "msw": "^1.0.0",
