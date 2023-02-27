@@ -5,7 +5,7 @@ switch (process.env.STAGE) {
   case "local-confirm":
     env = {
       stage: process.env.STAGE,
-      baseUrl: "http://localhost:8080",
+      baseUrl: "https://example.cypress.io",
     };
     break;
   case "dev":
@@ -22,9 +22,16 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
   },
   e2e: {
+    baseUrl: env.baseUrl,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       require("cypress-mochawesome-reporter/plugin")(on);
+      on("task", {
+        log(message) {
+          console.log(message);
+          return null;
+        },
+      });
     },
   },
   env,
