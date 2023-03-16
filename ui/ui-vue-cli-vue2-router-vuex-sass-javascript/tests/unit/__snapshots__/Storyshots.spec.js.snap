@@ -34,6 +34,19 @@ exports[`Storyshots Component/AboutView Default 1`] = `
 </v-app>
 `;
 
+exports[`Storyshots Component/CanvasTest Default 1`] = `
+<v-app>
+  <v-container
+    fluid=""
+  >
+    <canvas
+      height="200"
+      width="300"
+    />
+  </v-container>
+</v-app>
+`;
+
 exports[`Storyshots Component/HelloWorld Test Message 1`] = `
 <v-app>
   <v-container
@@ -896,217 +909,224 @@ exports[`Storyshots Pages/App Default 1`] = `
           </a>
         </nav>
          
-        <v-container>
-          <v-row
-            class="text-center"
-          >
-            <h1>
-              
-            </h1>
-             
-            <v-col
-              cols="12"
+        <div>
+          <v-container>
+            <v-row
+              class="text-center"
             >
-              <v-img
-                class="my-3"
-                contain=""
-                height="200"
-                src=""
-              />
-            </v-col>
-             
-            <v-col
-              class="mb-4"
-            >
-              <h1
-                class="display-2 font-weight-bold mb-3"
-              >
-                Welcome to Vuetify
+              <h1>
+                
               </h1>
                
-              <p
-                class="subheading font-weight-regular"
+              <v-col
+                cols="12"
               >
-                
+                <v-img
+                  class="my-3"
+                  contain=""
+                  height="200"
+                  src=""
+                />
+              </v-col>
+               
+              <v-col
+                class="mb-4"
+              >
+                <h1
+                  class="display-2 font-weight-bold mb-3"
+                >
+                  Welcome to Vuetify
+                </h1>
+                 
+                <p
+                  class="subheading font-weight-regular"
+                >
+                  
         For help and collaboration with other Vuetify developers,
         
-                <br />
-                please join our online
+                  <br />
+                  please join our online
         
-                <a
-                  href="https://community.vuetifyjs.com"
-                  target="_blank"
-                >
-                  Discord Community
-                </a>
-              </p>
-            </v-col>
-             
-            <v-col
-              class="mb-5"
-              cols="12"
-            >
-              <h2
-                class="headline font-weight-bold mb-3"
-              >
-                What's next?
-              </h2>
+                  <a
+                    href="https://community.vuetifyjs.com"
+                    target="_blank"
+                  >
+                    Discord Community
+                  </a>
+                </p>
+              </v-col>
                
-              <v-row
-                justify="center"
+              <v-col
+                class="mb-5"
+                cols="12"
               >
-                <a
-                  class="subheading mx-3"
-                  href="https://vuetifyjs.com/components/api-explorer"
-                  target="_blank"
+                <h2
+                  class="headline font-weight-bold mb-3"
                 >
-                  
+                  What's next?
+                </h2>
+                 
+                <v-row
+                  justify="center"
+                >
+                  <a
+                    class="subheading mx-3"
+                    href="https://vuetifyjs.com/components/api-explorer"
+                    target="_blank"
+                  >
+                    
           Explore components
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://vuetifyjs.com/getting-started/pre-made-layouts"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://vuetifyjs.com/getting-started/pre-made-layouts"
+                    target="_blank"
+                  >
+                    
           Select a layout
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://vuetifyjs.com/getting-started/frequently-asked-questions"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://vuetifyjs.com/getting-started/frequently-asked-questions"
+                    target="_blank"
+                  >
+                    
           Frequently Asked Questions
         
-                </a>
-              </v-row>
-            </v-col>
-             
-            <v-col
-              class="mb-5"
-              cols="12"
-            >
-              <h2
-                class="headline font-weight-bold mb-3"
-              >
-                Important Links
-              </h2>
+                  </a>
+                </v-row>
+              </v-col>
                
-              <v-row
-                justify="center"
+              <v-col
+                class="mb-5"
+                cols="12"
               >
-                <a
-                  class="subheading mx-3"
-                  href="https://vuetifyjs.com"
-                  target="_blank"
+                <h2
+                  class="headline font-weight-bold mb-3"
                 >
-                  
+                  Important Links
+                </h2>
+                 
+                <v-row
+                  justify="center"
+                >
+                  <a
+                    class="subheading mx-3"
+                    href="https://vuetifyjs.com"
+                    target="_blank"
+                  >
+                    
           Documentation
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://community.vuetifyjs.com"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://community.vuetifyjs.com"
+                    target="_blank"
+                  >
+                    
           Chat
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://madewithvuejs.com/vuetify"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://madewithvuejs.com/vuetify"
+                    target="_blank"
+                  >
+                    
           Made with Vuetify
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://twitter.com/vuetifyjs"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://twitter.com/vuetifyjs"
+                    target="_blank"
+                  >
+                    
           Twitter
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://medium.com/vuetify"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://medium.com/vuetify"
+                    target="_blank"
+                  >
+                    
           Articles
         
-                </a>
-              </v-row>
-            </v-col>
-             
-            <v-col
-              class="mb-5"
-              cols="12"
-            >
-              <h2
-                class="headline font-weight-bold mb-3"
-              >
-                Ecosystem
-              </h2>
+                  </a>
+                </v-row>
+              </v-col>
                
-              <v-row
-                justify="center"
+              <v-col
+                class="mb-5"
+                cols="12"
               >
-                <a
-                  class="subheading mx-3"
-                  href="https://github.com/vuetifyjs/vuetify-loader"
-                  target="_blank"
+                <h2
+                  class="headline font-weight-bold mb-3"
                 >
-                  
+                  Ecosystem
+                </h2>
+                 
+                <v-row
+                  justify="center"
+                >
+                  <a
+                    class="subheading mx-3"
+                    href="https://github.com/vuetifyjs/vuetify-loader"
+                    target="_blank"
+                  >
+                    
           vuetify-loader
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://github.com/vuetifyjs/vuetify"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://github.com/vuetifyjs/vuetify"
+                    target="_blank"
+                  >
+                    
           github
         
-                </a>
-                <a
-                  class="subheading mx-3"
-                  href="https://github.com/vuetifyjs/awesome-vuetify"
-                  target="_blank"
-                >
-                  
+                  </a>
+                  <a
+                    class="subheading mx-3"
+                    href="https://github.com/vuetifyjs/awesome-vuetify"
+                    target="_blank"
+                  >
+                    
           awesome-vuetify
         
-                </a>
-              </v-row>
-            </v-col>
-             
-            <v-col
-              class="mb-5"
-              cols="12"
-            >
-              <h2>
-                Call API when page mounted:
-              </h2>
+                  </a>
+                </v-row>
+              </v-col>
                
-              <v-row
-                justify="center"
+              <v-col
+                class="mb-5"
+                cols="12"
               >
-                <p>
-                  {}
-                </p>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-container>
+                <h2>
+                  Call API when page mounted:
+                </h2>
+                 
+                <v-row
+                  justify="center"
+                >
+                  <p>
+                    {}
+                  </p>
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-container>
+           
+          <canvas
+            height="200"
+            width="300"
+          />
+        </div>
       </v-main>
     </v-app>
   </v-container>
