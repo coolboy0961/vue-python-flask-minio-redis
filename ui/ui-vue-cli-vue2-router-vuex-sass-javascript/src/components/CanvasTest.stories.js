@@ -27,13 +27,13 @@ DrawACircle.play = async () => {
 
 /**
  * canvas内の座標をscreen内の座標に変換するためのメソッド
- * @param {*} canvas canvasのelement
+ * @param {*} canvasElement canvasのelement
  * @param {*} x canvas内のx座標
  * @param {*} y canvas内のy座標
  * @returns screen内のxy座標
  */
-function toClientCoordinates(canvas, x, y) {
-  const rect = canvas.getBoundingClientRect();
+function toClientCoordinates(canvasElement, x, y) {
+  const rect = canvasElement.getBoundingClientRect();
   const clientX = x + rect.left;
   const clientY = y + rect.top;
 
