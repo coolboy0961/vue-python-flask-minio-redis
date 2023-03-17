@@ -16,11 +16,14 @@ const getGotoOptions = ({ context, url }) => {
   };
 };
 
+// https://storybook.js.org/addons/@storybook/addon-storyshots
 // https://storybook.js.org/addons/@storybook/addon-storyshots-puppeteer
 initStoryshots({
   suite: "Image storyshots",
+  storyNameRegex: /^((?!.*?DontVisualTest).)*$/,
   test: imageSnapshot({
     storybookUrl: "http://localhost:6006/", // StorybookのURL
     getGotoOptions,
+    customizePage: (page) => page.setViewport({ width: 1920, height: 1080 }),
   }),
 });

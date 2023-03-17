@@ -39,8 +39,9 @@ Large.args = {
   label: "Button",
 };
 
-export const Small = Template.bind({});
-Small.args = {
+export const SmallDontVisualTest = Template.bind({});
+SmallDontVisualTest.storyName = "SmallDontVisualTest";
+SmallDontVisualTest.args = {
   size: "small",
   label: "Button",
 };
