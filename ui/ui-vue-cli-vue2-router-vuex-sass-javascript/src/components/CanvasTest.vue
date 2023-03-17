@@ -26,7 +26,7 @@ export default Vue.component("CanvasTest", {
 
     // Draw something on the canvas
     this.drawCircle(100, 100, 10);
-    this.drawCircle(200, 100, 10);
+    // this.drawCircle(200, 100, 10);
   },
   methods: {
     drawCircle(x, y, radius) {

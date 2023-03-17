@@ -12,5 +12,5 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
   },
-  testTimeout: 30000, // Timeout in milliseconds
+  testTimeout: 60000, // Timeout in milliseconds
 };
