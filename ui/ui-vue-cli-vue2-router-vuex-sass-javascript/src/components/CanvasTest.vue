@@ -1,5 +1,6 @@
 <template>
   <canvas
+    data-testid="canvas-test"
     ref="canvas"
     :width="width"
     :height="height"
