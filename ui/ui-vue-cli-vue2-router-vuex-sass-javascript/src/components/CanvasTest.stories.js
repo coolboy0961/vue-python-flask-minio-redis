@@ -17,12 +17,12 @@ export const Default = Template.bind({});
 
 export const DrawACircle = Template.bind({});
 DrawACircle.play = async () => {
-  const canvasComponent = document.querySelector("canvas");
-  const clientCoordinates = toClientCoordinates(canvasComponent, 200, 100);
+  const canvasElement = document.querySelector("canvas");
+  const clientCoordinates = toClientCoordinates(canvasElement, 200, 100);
   const clickEvent = new MouseEvent("click", {
     ...clientCoordinates,
   });
-  canvasComponent.dispatchEvent(clickEvent);
+  canvasElement.dispatchEvent(clickEvent);
 };
 
 /**
