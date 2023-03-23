@@ -17,9 +17,9 @@ const getGotoOptions = ({ context, url }) => {
 };
 
 // eslint-disable-next-line no-unused-vars
-const getScreenshotOptions = ({ context }) => {
+const getMatchOptions = ({ context: { kind, story }, url }) => {
   return {
-    failureThreshold: 0.02, // 許容される最大差分率（例：0.01は1%のこと)
+    failureThreshold: 0.01, // 許容される最大差分率（例：0.01は1%のこと)
     failureThresholdType: "percent", // パーセンテージを用いた差分閾値の種類
   };
 };
@@ -32,7 +32,7 @@ initStoryshots({
   test: imageSnapshot({
     storybookUrl: "http://localhost:6006/", // StorybookのURL
     getGotoOptions,
-    getScreenshotOptions,
+    getMatchOptions,
     customizePage: (page) => page.setViewport({ width: 1920, height: 1080 }),
   }),
 });
