@@ -26,9 +26,7 @@ describe("HelloWorld.vue", () => {
   });
   it("API Data を取得できること", async () => {
     // Arrange
-    const expected = {
-      result: "this is a test.",
-    };
+    const expected = '"result": "this is a test."';
     apiMockServer.use(
       rest.get("/api/user", (req, res, ctx) => {
         console.log(JSON.stringify(req));
@@ -39,9 +37,8 @@ describe("HelloWorld.vue", () => {
     // Act
     const wrapper = mount(HelloWorld, { propsData: { msg: "Hello Vitest" } });
     await flushPromises();
-    const mockApiData = wrapper.vm.apiResponseData;
 
     // Assert
-    expect(mockApiData).toEqual(expected);
+    expect(wrapper.text()).toContain(expected);
   });
 });

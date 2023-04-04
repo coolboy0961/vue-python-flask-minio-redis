@@ -11,6 +11,7 @@
     "coverage": "vue-cli-service test:unit --coverage",
     "storybook": "start-storybook -p 6006",
     "test-storybook": "test-storybook",
+    "test-storybook:cross-browser": "test-storybook --browsers chromium firefox webkit",
     "sonar": "sonar-scanner",
     "test:visual": "vue-cli-service test:unit Storyshots.spec.js",
     "test:visual:reset": "vue-cli-service test:unit Storyshots.spec.js -u"
